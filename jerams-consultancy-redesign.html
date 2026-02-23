@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jerams Consultancy | Technology & Management Consulting London</title>
+<meta name="description" content="Jerams Consultancy — London's trusted technology and management consulting firm. Strategy, digital transformation, cyber security and cloud delivered by senior consultants with real-world experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─── */
+:root {
+  --ink:        #0c0f14;
+  --ink-mid:    #1e2535;
+  --ink-soft:   #4a5568;
+  --ink-muted:  #8a97aa;
+  --steel:      #1a2540;
+  --steel-mid:  #243356;
+  --gold:       #b8922a;
+  --gold-light: #d4aa4a;
+  --gold-pale:  rgba(184,146,42,0.12);
+  --cream:      #f8f5f0;
+  --warm:       #ede9e2;
+  --white:      #ffffff;
+  --rule:       rgba(184,146,42,0.18);
+  --r:          4px;
+  --ease:       cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ─── RESET ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ─── TOPBAR ─── */
+.topbar{
+  background:var(--steel);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 6%;
+  font-size:0.78rem;
+  color:rgba(255,255,255,0.55);
+  letter-spacing:0.04em;
+}
+.topbar a{color:var(--gold-light);transition:opacity .2s}
+.topbar a:hover{opacity:.75}
+.topbar-right{display:flex;gap:1.5rem;align-items:center}
+
+/* ─── NAV ─── */
+nav{
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;
+  height:68px;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 2px 24px rgba(0,0,0,.35);
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.45rem;font-weight:700;
+  color:var(--white);letter-spacing:0.03em;
+  display:flex;align-items:center;gap:10px;
+}
+.nav-logo .bar{width:3px;height:22px;background:var(--gold);border-radius:1px}
+.nav-links{display:flex;gap:1.8rem;list-style:none;align-items:center}
+.nav-links a{
+  font-size:0.8rem;font-weight:500;
+  color:rgba(255,255,255,.65);
+  letter-spacing:0.06em;text-transform:uppercase;
+  transition:color .2s var(--ease);
+  position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:1px;background:var(--gold);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .25s var(--ease);
+}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{
+  background:var(--gold)!important;color:var(--ink)!important;
+  padding:9px 20px;border-radius:var(--r);
+  font-weight:600!important;
+  transition:background .2s!important;
+}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--gold-light)!important}
+
+/* ─── HERO ─── */
+.hero{
+  background:var(--ink);
+  min-height:88vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:0;
+  position:relative;overflow:hidden;
+}
+.hero-bg-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(184,146,42,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184,146,42,.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;
+}
+.hero-bg-glow{
+  position:absolute;top:-10%;right:-5%;
+  width:700px;height:700px;
+  background:radial-gradient(circle, rgba(184,146,42,.1) 0%, transparent 65%);
+  pointer-events:none;
+}
+.hero-left{
+  padding:80px 6% 80px 8%;
+  position:relative;z-index:2;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--gold-pale);
+  border:1px solid var(--rule);
+  color:var(--gold-light);
+  padding:5px 14px;border-radius:2px;
+  font-size:0.72rem;font-weight:600;
+  letter-spacing:0.14em;text-transform:uppercase;
+  margin-bottom:1.75rem;
+}
+.hero-kicker span{
+  width:6px;height:6px;background:var(--gold);
+  border-radius:50%;
+  animation:blink 2.4s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,4.5vw,3.8rem);
+  font-weight:700;line-height:1.15;
+  color:var(--white);
+  margin-bottom:1.5rem;
+}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{
+  color:rgba(255,255,255,.6);
+  font-size:1rem;font-weight:300;
+  line-height:1.9;max-width:500px;
+  margin-bottom:2.5rem;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{
+  display:inline-block;
+  padding:13px 26px;border-radius:var(--r);
+  font-size:0.875rem;font-weight:600;
+  letter-spacing:0.03em;
+  transition:all .2s var(--ease);
+}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(184,146,42,.3)}
+.btn-ghost{
+  background:transparent;color:rgba(255,255,255,.75);
+  border:1px solid rgba(255,255,255,.2);
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-light)}
+.hero-right{
+  height:100%;min-height:88vh;
+  background:var(--steel);
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:60px 40px;
+  border-left:1px solid rgba(184,146,42,.15);
+}
+.hero-right::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light),transparent);
+}
+.consultant-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(184,146,42,.2);
+  border-radius:8px;
+  padding:36px 32px;
+  width:100%;max-width:340px;
+  text-align:center;
+  position:relative;
+}
+.consultant-card-badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:var(--ink);
+  font-size:0.68rem;font-weight:700;
+  letter-spacing:0.1em;text-transform:uppercase;
+  padding:4px 14px;border-radius:20px;
+  white-space:nowrap;
+}
+.consultant-avatar{
+  width:100px;height:100px;
+  background:linear-gradient(135deg,var(--steel-mid),var(--ink-mid));
+  border-radius:50%;
+  border:3px solid var(--gold);
+  margin:0 auto 1.25rem;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.5rem;
+  box-shadow:0 0 0 6px rgba(184,146,42,.1);
+}
+.consultant-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.55rem;font-weight:700;
+  color:var(--white);margin-bottom:3px;
+}
+.consultant-role{
+  color:var(--gold-light);
+  font-size:0.78rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.consultant-bio{
+  color:rgba(255,255,255,.55);
+  font-size:0.82rem;line-height:1.7;
+  margin-bottom:1.5rem;
+}
+.consultant-tags{
+  display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+  margin-bottom:1.5rem;
+}
+.ctag{
+  background:rgba(184,146,42,.1);
+  border:1px solid rgba(184,146,42,.25);
+  color:var(--gold-light);
+  font-size:0.68rem;font-weight:600;
+  padding:3px 10px;border-radius:2px;
+  letter-spacing:0.05em;
+}
+.consultant-link{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--gold);font-size:0.8rem;font-weight:600;
+  border-bottom:1px solid transparent;
+  transition:border-color .2s;
+}
+.consultant-link:hover{border-color:var(--gold)}
+.hero-metrics{
+  display:flex;gap:2px;width:100%;max-width:340px;
+  margin-top:2rem;
+  background:rgba(184,146,42,.12);
+  border:1px solid var(--rule);
+  border-radius:var(--r);
+  overflow:hidden;
+}
+.hm{flex:1;text-align:center;padding:14px 8px}
+.hm-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:700;
+  color:var(--gold-light);line-height:1;
+  display:block;margin-bottom:3px;
+}
+.hm-lbl{color:rgba(255,255,255,.4);font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase}
+
+/* ─── SECTION SHELL ─── */
+.section{padding:90px 8%}
+.section-alt{background:var(--white)}
+.section-dark{background:var(--ink);color:var(--white)}
+.section-steel{background:var(--steel);color:var(--white)}
+.label{
+  display:inline-block;
+  font-size:0.72rem;font-weight:600;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:.6rem;
+}
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,3.2vw,2.8rem);
+  font-weight:700;line-height:1.2;
+  margin-bottom:.75rem;
+}
+.section-dark h2{color:var(--cream)}
+.section-steel h2{color:var(--cream)}
+.intro{
+  color:var(--ink-soft);font-size:1rem;
+  max-width:600px;line-height:1.85;
+  margin-bottom:3rem;
+}
+.section-dark .intro,.section-steel .intro{color:rgba(255,255,255,.6)}
+
+/* ─── MARQUEE STRIP ─── */
+.marquee-strip{
+  background:var(--gold);
+  padding:14px 0;overflow:hidden;
+  white-space:nowrap;
+}
+.marquee-track{
+  display:inline-flex;gap:48px;
+  animation:marquee 28s linear infinite;
+}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{
+  font-size:0.78rem;font-weight:700;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--ink);
+  display:inline-flex;align-items:center;gap:12px;
+}
+.marquee-item::after{content:'◆';font-size:.5rem;opacity:.5}
+
+/* ─── WHY US ─── */
+.why-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--warm);
+  border:1px solid var(--warm);
+  border-radius:var(--r);overflow:hidden;
+}
+.why-card{
+  background:var(--white);
+  padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+  transition:background .25s var(--ease);
+}
+.why-card:hover{background:var(--cream)}
+.why-icon{font-size:1.8rem;margin-bottom:1rem}
+.why-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.2rem;color:var(--ink);
+  margin-bottom:.6rem;font-weight:700;
+}
+.why-card p{color:var(--ink-soft);font-size:.875rem;line-height:1.75}
+.why-bar{
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--gold);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--ease);
+}
+.why-card:hover .why-bar{transform:scaleX(1)}
+
+/* ─── SERVICES ─── */
+.services-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1.5rem;
+}
+.svc-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r);padding:2rem 1.5rem;
+  transition:all .3s var(--ease);
+  cursor:pointer;
+}
+.svc-card:hover{
+  background:rgba(184,146,42,.08);
+  border-color:rgba(184,146,42,.3);
+  transform:translateY(-4px);
+}
+.svc-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;color:rgba(184,146,42,.25);
+  font-weight:700;line-height:1;
+  margin-bottom:.75rem;
+}
+.svc-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;color:var(--cream);
+  margin-bottom:.6rem;font-weight:600;
+}
+.svc-card p{color:rgba(255,255,255,.5);font-size:.82rem;line-height:1.7}
+.svc-arrow{
+  display:inline-flex;align-items:center;gap:4px;
+  color:var(--gold);font-size:.75rem;font-weight:600;
+  margin-top:1rem;
+  transition:gap .2s;
+}
+.svc-card:hover .svc-arrow{gap:8px}
+
+/* ─── APPROACH ─── */
+.approach-grid{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  position:relative;
+  gap:0;margin-top:3rem;
+}
+.approach-grid::before{
+  content:'';position:absolute;
+  top:28px;left:8%;right:8%;height:1px;
+  background:linear-gradient(90deg,var(--gold),rgba(184,146,42,.1));
+  z-index:0;
+}
+.approach-step{
+  text-align:center;padding:0 1rem;
+  position:relative;z-index:1;
+}
+.step-circle{
+  width:56px;height:56px;
+  background:var(--ink);
+  border:2px solid var(--gold);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.25rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:700;
+  color:var(--gold);
+}
+.approach-step h4{
+  font-size:.85rem;font-weight:600;
+  color:var(--ink);margin-bottom:.4rem;
+}
+.approach-step p{color:var(--ink-soft);font-size:.78rem;line-height:1.6}
+
+/* ─── INDUSTRIES ─── */
+.industries-flex{
+  display:flex;flex-wrap:wrap;gap:.75rem;
+  margin-top:2rem;
+}
+.ind-pill{
+  background:var(--cream);
+  border:1px solid var(--warm);
+  color:var(--ink-soft);
+  padding:8px 18px;border-radius:2px;
+  font-size:.83rem;font-weight:500;
+  transition:all .2s var(--ease);
+}
+.ind-pill:hover{background:var(--steel);color:var(--white);border-color:var(--steel)}
+
+/* ─── MEET THE TEAM ─── */
+.team-wrapper{
+  display:grid;grid-template-columns:1.1fr 1fr;
+  gap:4rem;align-items:start;
+  margin-top:3rem;
+}
+.team-lead-card{
+  background:var(--cream);
+  border:1px solid var(--warm);
+  border-radius:8px;overflow:hidden;
+  position:relative;
+}
+.tlc-top{
+  background:var(--steel);
+  padding:40px 32px;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;
+  border-bottom:1px solid rgba(184,146,42,.2);
+  position:relative;
+}
+.tlc-top::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.tl-photo{
+  width:110px;height:110px;
+  background:linear-gradient(135deg,var(--steel-mid),var(--ink-mid));
+  border-radius:50%;
+  border:3px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3rem;
+  margin-bottom:1.25rem;
+  box-shadow:0 0 0 8px rgba(184,146,42,.08);
+}
+.tl-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-weight:700;
+  color:var(--white);margin-bottom:4px;
+}
+.tl-title{
+  color:var(--gold-light);
+  font-size:.78rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.available-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(45,122,79,.2);
+  border:1px solid rgba(45,122,79,.4);
+  color:#7fffa8;
+  font-size:.7rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 12px;border-radius:20px;
+}
+.available-pill span{
+  width:6px;height:6px;background:#4ade80;
+  border-radius:50%;
+  animation:blink 2s infinite;
+}
+.tlc-body{padding:32px}
+.tl-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.05rem;
+  color:var(--ink-mid);line-height:1.6;
+  border-left:3px solid var(--gold);
+  padding-left:1rem;margin-bottom:1.25rem;
+}
+.tl-body-text{
+  color:var(--ink-soft);font-size:.875rem;
+  line-height:1.85;margin-bottom:1rem;
+}
+.tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+.tl-tag{
+  background:var(--gold-pale);
+  border:1px solid rgba(184,146,42,.2);
+  color:var(--gold);
+  font-size:.72rem;font-weight:600;
+  padding:3px 10px;border-radius:2px;
+}
+.tl-links{display:flex;gap:1rem}
+.tl-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:.8rem;font-weight:600;
+  color:var(--gold);
+  border-bottom:1px solid transparent;
+  transition:border-color .2s;
+}
+.tl-link:hover{border-color:var(--gold)}
+
+.team-right h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:700;
+  color:var(--ink);margin-bottom:1rem;
+}
+.team-right p{color:var(--ink-soft);font-size:.9rem;line-height:1.85;margin-bottom:1rem}
+.team-values{margin-top:2rem;display:flex;flex-direction:column;gap:1rem}
+.tv-item{
+  display:flex;gap:1rem;align-items:flex-start;
+  padding:1.25rem;
+  background:var(--cream);
+  border:1px solid var(--warm);
+  border-radius:var(--r);
+}
+.tv-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0}
+.tv-item h4{
+  font-size:.875rem;font-weight:600;
+  color:var(--ink);margin-bottom:.25rem;
+}
+.tv-item p{color:var(--ink-soft);font-size:.82rem;line-height:1.6}
+
+/* ─── TESTIMONIALS ─── */
+.testi-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;margin-top:3rem;
+}
+.tcard{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:var(--r);padding:2rem;
+  position:relative;
+}
+.tcard::before{
+  content:'\201C';
+  font-family:'Cormorant Garamond',serif;
+  font-size:5rem;color:var(--gold);opacity:.2;
+  position:absolute;top:4px;left:16px;
+  line-height:1;pointer-events:none;
+}
+.tcard p{
+  color:rgba(255,255,255,.65);
+  font-size:.875rem;line-height:1.8;
+  padding-top:1.75rem;
+}
+.tcard-author{
+  margin-top:1.25rem;
+  font-size:.8rem;font-weight:600;
+  color:var(--cream);
+}
+.tcard-role{color:rgba(255,255,255,.35);font-size:.75rem;font-weight:400}
+
+/* ─── CYBER TEK CALLOUT ─── */
+.cybertek{
+  background:var(--steel);
+  padding:70px 8%;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+  border-top:1px solid rgba(184,146,42,.15);
+  border-bottom:1px solid rgba(184,146,42,.15);
+}
+.ct-badge{
+  display:inline-block;
+  background:rgba(184,146,42,.15);border:1px solid var(--rule);
+  color:var(--gold-light);
+  font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  padding:5px 14px;border-radius:2px;margin-bottom:1.25rem;
+}
+.cybertek h2{color:var(--cream);margin-bottom:1rem}
+.cybertek p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.85;margin-bottom:1.5rem}
+.ct-features{display:flex;flex-direction:column;gap:.75rem}
+.ct-feat{
+  display:flex;gap:.75rem;align-items:flex-start;
+  color:rgba(255,255,255,.7);font-size:.85rem;
+}
+.ct-feat::before{
+  content:'→';color:var(--gold);font-size:.8rem;
+  margin-top:3px;flex-shrink:0;
+}
+.ct-phone{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.9rem;font-weight:700;
+  color:var(--gold-light);margin-bottom:.5rem;
+  display:block;
+}
+.ct-phone-label{color:rgba(255,255,255,.4);font-size:.75rem;letter-spacing:.05em}
+
+/* ─── STATS BAR ─── */
+.stats-bar{
+  background:var(--gold);
+  padding:48px 8%;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2rem;text-align:center;
+}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;font-weight:700;
+  color:var(--ink);line-height:1;
+  display:block;margin-bottom:.4rem;
+}
+.stat-lbl{
+  font-size:.75rem;font-weight:600;
+  color:rgba(10,15,20,.65);letter-spacing:.07em;text-transform:uppercase;
+}
+
+/* ─── CTA BLOCK ─── */
+.cta-block{
+  background:var(--ink);
+  text-align:center;padding:90px 8%;
+  position:relative;overflow:hidden;
+}
+.cta-block::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:700px;height:700px;
+  background:radial-gradient(circle,rgba(184,146,42,.07) 0%,transparent 65%);
+  pointer-events:none;
+}
+.cta-block h2{color:var(--cream);position:relative;z-index:1;font-size:clamp(2rem,3.5vw,3rem)}
+.cta-block p{
+  color:rgba(255,255,255,.55);font-size:1rem;
+  max-width:540px;margin:1.5rem auto 2.5rem;
+  line-height:1.9;position:relative;z-index:1;
+}
+.cta-row{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+
+/* ─── FOOTER ─── */
+.footer{
+  background:var(--ink-mid);
+  padding:56px 8% 28px;
+  border-top:1px solid rgba(184,146,42,.12);
+}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:3rem;margin-bottom:3rem;
+}
+.fg-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:700;
+  color:var(--white);margin-bottom:.75rem;
+}
+.fg-desc{color:rgba(255,255,255,.4);font-size:.82rem;line-height:1.75;max-width:280px}
+.fg-col h4{
+  font-size:.72rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;
+}
+.fg-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.fg-col ul a{color:rgba(255,255,255,.45);font-size:.82rem;transition:color .2s}
+.fg-col ul a:hover{color:var(--gold)}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid rgba(255,255,255,.06);
+  padding-top:1.5rem;flex-wrap:wrap;gap:.75rem;
+}
+.footer-bottom p{color:rgba(255,255,255,.3);font-size:.78rem}
+.footer-bottom a{color:rgba(255,255,255,.3);font-size:.78rem;transition:color .2s}
+.footer-bottom a:hover{color:var(--gold)}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1000px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{min-height:auto;border-left:none;border-top:1px solid rgba(184,146,42,.15)}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .approach-grid{grid-template-columns:repeat(3,1fr)}
+  .approach-grid::before{display:none}
+  .team-wrapper{grid-template-columns:1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .cybertek{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .why-grid{grid-template-columns:1fr}
+  nav .nav-links{display:none}
+}
+@media(max-width:640px){
+  .section{padding:60px 5%}
+  .services-grid{grid-template-columns:1fr}
+  .approach-grid{grid-template-columns:1fr 1fr}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .footer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <span>📍 London, UK &nbsp;|&nbsp; Serving clients across the UK and globally</span>
+  <div class="topbar-right">
+    <a href="tel:+4402071677794">+44 (0)20 7167 7794</a>
+    <a href="https://jeramsconsultancy.com/book-appointment/">Book an Appointment</a>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-logo"><div class="bar"></div>Jerams Consultancy</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#team">Our Consultant</a></li>
+    <li><a href="#cybertek">CyberTek</a></li>
+    <li><a href="https://jeramsconsultancy.com/recruitment/">Recruitment</a></li>
+    <li><a href="https://jeramsconsultancy.com/blog/">Insights</a></li>
+    <li><a href="#contact" class="nav-cta">Get Started</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-bg-glow"></div>
+
+  <div class="hero-left">
+    <div class="hero-kicker"><span></span> London's Technology Consulting Partner</div>
+    <h1>Innovation <em>Empowered,</em><br>Solutions Transformed.</h1>
+    <p class="hero-sub">
+      We are a management consulting firm combining engineering expertise, cutting-edge technology, and user-centric design — partnering with organisations to deliver enterprise solutions that actually work.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn btn-gold">Explore Our Services</a>
+      <a href="#team" class="btn btn-ghost">Meet Our Consultant</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="consultant-card">
+      <div class="consultant-card-badge">Currently Available</div>
+      <div class="consultant-avatar">👤</div>
+      <div class="consultant-name">Nilesh Jeram</div>
+      <div class="consultant-role">Founder &amp; Principal Consultant</div>
+      <p class="consultant-bio">
+        Senior technology and transformation leader with 20+ years delivering mission-critical programmes across banking, cyber security, and digital transformation.
+      </p>
+      <div class="consultant-tags">
+        <span class="ctag">Transformation</span>
+        <span class="ctag">Cyber Security</span>
+        <span class="ctag">Programme Delivery</span>
+        <span class="ctag">Stakeholder Mgmt</span>
+      </div>
+      <a href="https://linkedin.com/in/nileshjeram" target="_blank" class="consultant-link">
+        View LinkedIn Profile ↗
+      </a>
+    </div>
+    <div class="hero-metrics">
+      <div class="hm"><span class="hm-num">20+</span><span class="hm-lbl">Yrs Experience</span></div>
+      <div class="hm"><span class="hm-num">22</span><span class="hm-lbl">Recommendations</span></div>
+      <div class="hm"><span class="hm-num">5+</span><span class="hm-lbl">Sectors Served</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Strategy &amp; Transformation</span>
+    <span class="marquee-item">Digital Transformation</span>
+    <span class="marquee-item">Cyber Security</span>
+    <span class="marquee-item">Cloud &amp; Platform</span>
+    <span class="marquee-item">Technology Engineering</span>
+    <span class="marquee-item">Data Driven Insights</span>
+    <span class="marquee-item">Design &amp; Innovation</span>
+    <span class="marquee-item">CyberTek Services</span>
+    <span class="marquee-item">Recruitment</span>
+    <span class="marquee-item">Strategy &amp; Transformation</span>
+    <span class="marquee-item">Digital Transformation</span>
+    <span class="marquee-item">Cyber Security</span>
+    <span class="marquee-item">Cloud &amp; Platform</span>
+    <span class="marquee-item">Technology Engineering</span>
+    <span class="marquee-item">Data Driven Insights</span>
+    <span class="marquee-item">Design &amp; Innovation</span>
+    <span class="marquee-item">CyberTek Services</span>
+    <span class="marquee-item">Recruitment</span>
+  </div>
+</div>
+
+<!-- Why Us -->
+<section class="section section-alt" id="about">
+  <div class="label">Why Jerams Consultancy</div>
+  <h2>Your Dedicated Technology<br>Partner for Strategic Initiatives</h2>
+  <p class="intro">
+    We combine engineering expertise, cutting-edge technology, user-centric design, and a collaborative delivery methodology — building strong client relationships through transparency, simplicity, and an unwavering commitment to excellence.
+  </p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">⚡</div>
+      <h3>Immediate Value</h3>
+      <p>We bring immediate, tangible value to your organisation — specialising in tight-deadline projects, programme turnarounds, and engagements that are ragged red and critical to your business strategy.</p>
+      <div class="why-bar"></div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🤝</div>
+      <h3>Relationship First</h3>
+      <p>Real working collaborations built on transparency and honesty. We earn the trust of our clients and maintain it through consistent delivery, clear communication, and a genuine commitment to your success.</p>
+      <div class="why-bar"></div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <h3>Outcomes Focused</h3>
+      <p>We thrive in the most demanding and complex environments — adaptable, flexible, and committed to delivering excellence whether we are the sole delivery partner or operating within a mixed team.</p>
+      <div class="why-bar"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section section-dark" id="services">
+  <div class="label">Our Consulting Services</div>
+  <h2>What We Deliver</h2>
+  <p class="intro">
+    End-to-end technology and management consulting across seven core practice areas — each delivered with senior-level attention and a commitment to your strategic goals.
+  </p>
+  <div class="services-grid">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <h3>Strategy &amp; Transformation</h3>
+      <p>Recognise and seize new opportunities, gain competitive intelligence, and build the capability to execute transformation at pace.</p>
+      <div class="svc-arrow">Learn more →</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <h3>Digital Transformation</h3>
+      <p>Leveraging technology and data-driven strategies to streamline processes, enhance customer experiences, and drive lasting innovation.</p>
+      <div class="svc-arrow">Learn more →</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <h3>Design &amp; Innovation</h3>
+      <p>Generate value through cutting-edge products, services, and experiences — for both your organisation and your customers.</p>
+      <div class="svc-arrow">Learn more →</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">04</div>
+      <h3>Technology &amp; Engineering</h3>
+      <p>World-class technology engineering and agile delivery teams creating mission-critical solutions that scale with your ambitions.</p>
+      <div class="svc-arrow">Learn more →</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">05</div>
+      <h3>Cloud &amp; Platform</h3>
+      <p>Faster, lower-cost cloud and platform deployments with shorter time-to-value — delivered without compromising on quality or resilience.</p>
+      <div class="svc-arrow">Learn more →</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">06</div>
+      <h3>Cyber Security</h3>
+      <p>Strengthen your security posture with a tried-and-trusted end-to-end solution — so you can expand confidently in the cloud.</p>
+      <div class="svc-arrow">Learn more →</div>
+    </div>
+    <div class="svc-card">
+      <div class="svc-num">07</div>
+      <h3>Data Driven Insights</h3>
+      <p>Collection, processing, analysis, and interpretation of data to generate meaningful insights and deliver valuable, actionable outcomes.</p>
+      <div class="svc-arrow">Learn more →</div>
+    </div>
+    <div class="svc-card" style="border-style:dashed;opacity:.55;cursor:default">
+      <div class="svc-num">+</div>
+      <h3>Bespoke Engagements</h3>
+      <p>Don't see your need listed? We work across the full technology and transformation landscape. Get in touch to discuss your challenge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Industries -->
+<section class="section section-alt">
+  <div class="label">Sector Experience</div>
+  <h2>Industries We Serve</h2>
+  <p class="intro">Deep cross-sector experience means we bring best practice from one industry to solve the challenges of another.</p>
+  <div class="industries-flex">
+    <span class="ind-pill">Travel</span>
+    <span class="ind-pill">Retail</span>
+    <span class="ind-pill">Transport</span>
+    <span class="ind-pill">Banking &amp; Financial Services</span>
+    <span class="ind-pill">Insurance</span>
+    <span class="ind-pill">Legal</span>
+    <span class="ind-pill">Cyber Security</span>
+    <span class="ind-pill">Cloud &amp; Infrastructure</span>
+    <span class="ind-pill">Technology Services</span>
+    <span class="ind-pill">Humanitarian &amp; Third Sector</span>
+  </div>
+</section>
+
+<!-- Our Work Process -->
+<section class="section" id="process">
+  <div class="label">Our Approach</div>
+  <h2>How We Work</h2>
+  <p class="intro">A structured yet flexible methodology — discipline in process, adaptability in delivery.</p>
+  <div class="approach-grid">
+    <div class="approach-step">
+      <div class="step-circle">1</div>
+      <h4>Meet &amp; Understand</h4>
+      <p>Deep-dive into your organisation, challenges, and goals before making a single recommendation.</p>
+    </div>
+    <div class="approach-step">
+      <div class="step-circle">2</div>
+      <h4>Expert Advice</h4>
+      <p>Independent, senior-level insight — drawing on decades of real-world delivery experience.</p>
+    </div>
+    <div class="approach-step">
+      <div class="step-circle">3</div>
+      <h4>Bespoke Strategy</h4>
+      <p>A tailored plan aligned to your strategic goals, governance requirements, and budget reality.</p>
+    </div>
+    <div class="approach-step">
+      <div class="step-circle">4</div>
+      <h4>Hands-On Delivery</h4>
+      <p>Leading execution with your teams — not handing over a deck and disappearing.</p>
+    </div>
+    <div class="approach-step">
+      <div class="step-circle">5</div>
+      <h4>Growth &amp; Optimise</h4>
+      <p>Embedding capability, monitoring performance, and refining for continuous improvement.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Meet the Consultant -->
+<section class="section section-alt" id="team">
+  <div class="label">Our Principal Consultant</div>
+  <h2>The Expert Behind the Firm</h2>
+  <p class="intro">Jerams Consultancy is built on the expertise and values of its founder — a senior technology leader who has spent 20 years delivering where it matters most.</p>
+
+  <div class="team-wrapper">
+    <div class="team-lead-card">
+      <div class="tlc-top">
+        <div class="tl-photo">👤</div>
+        <div class="tl-name">Nilesh Jeram</div>
+        <div class="tl-title">Founder &amp; Principal Consultant</div>
+        <div class="available-pill"><span></span> Available for New Engagements</div>
+      </div>
+      <div class="tlc-body">
+        <p class="tl-quote">"He is a fantastic stakeholder manager with a great technical skill set — always using his extensive experience to help teams through difficult project deliveries."</p>
+        <p class="tl-body-text">
+          Nilesh founded Jerams Consultancy after a distinguished career spanning Barclays, Barclaycard, The Co-operative Bank, and Article 25 — building a reputation as the consultant you call when a programme is critical and cannot afford to fail.
+        </p>
+        <p class="tl-body-text">
+          He brings rare depth across both the technical and human sides of transformation: translating complexity to executives while maintaining credibility with delivery teams. With 22 LinkedIn recommendations and experience across banking, cyber, retail, and the third sector, Nilesh integrates quickly and delivers immediate impact.
+        </p>
+        <div class="tl-tags">
+          <span class="tl-tag">Technical Transformation</span>
+          <span class="tl-tag">Cyber Improvement</span>
+          <span class="tl-tag">Programme Recovery</span>
+          <span class="tl-tag">Stakeholder Management</span>
+          <span class="tl-tag">Agile Delivery</span>
+          <span class="tl-tag">Digital Strategy</span>
+        </div>
+        <div class="tl-links">
+          <a href="https://linkedin.com/in/nileshjeram" target="_blank" class="tl-link">LinkedIn Profile ↗</a>
+          <a href="#contact" class="tl-link">Enquire About Availability ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-right">
+      <h3>Built on Performance, Trust, and Long-Term Relationships</h3>
+      <p>
+        Since the inception of Jerams Consultancy, our values have remained constant — they are the bedrock that defines who we are and how we work. The synergy between technology expertise and a people-first culture drives our market performance.
+      </p>
+      <p>
+        We prioritise real working relationships and keeping our promises. Whether working as a sole delivery partner or embedded within a mixed client-supplier team, we adapt, remain transparent, and focus relentlessly on what matters: your outcomes.
+      </p>
+      <div class="team-values">
+        <div class="tv-item">
+          <div class="tv-icon">🏆</div>
+          <div>
+            <h4>Performance Excellence</h4>
+            <p>Regardless of our roles, our unwavering objective is to consistently deliver exceptional quality work.</p>
+          </div>
+        </div>
+        <div class="tv-item">
+          <div class="tv-icon">🎯</div>
+          <div>
+            <h4>Successive Outcomes</h4>
+            <p>We share a genuine desire to succeed and a strong commitment to quality in everything we undertake.</p>
+          </div>
+        </div>
+        <div class="tv-item">
+          <div class="tv-icon">🤝</div>
+          <div>
+            <h4>Long-Term Relationships</h4>
+            <p>Real working collaborations and upholding our promises help us establish lasting client relationships built on trust.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section section-dark">
+  <div class="label">Client Testimonials</div>
+  <h2>What Clients &amp; Colleagues Say</h2>
+  <p class="intro">Drawn directly from verified LinkedIn recommendations — real feedback from real engagements.</p>
+  <div class="testi-grid">
+    <div class="tcard">
+      <p>"Working with Jerams Consultancy was a game-changer for our business. Their expert team provided invaluable insights and strategic guidance that propelled our growth to new heights."</p>
+      <div class="tcard-author">Christine Rose <span class="tcard-role"> · Client</span></div>
+    </div>
+    <div class="tcard">
+      <p>"Nilesh was the Technical Transformation Lead delivering a Cyber Improvement programme. He is a fantastic stakeholder manager with a great technical skill set — breaking down business requirements into delivery reality."</p>
+      <div class="tcard-author">Senior Programme Lead <span class="tcard-role"> · Financial Services Sector</span></div>
+    </div>
+    <div class="tcard">
+      <p>"Choosing Jerams Consultancy was one of the best decisions we made. Their consultants demonstrated exceptional knowledge and a keen eye for detail — resulting in actionable recommendations with immediate positive impact."</p>
+      <div class="tcard-author">Mike Hardron <span class="tcard-role"> · Client</span></div>
+    </div>
+    <div class="tcard">
+      <p>"Nilesh had the ability to cut through the noise and focus on delivering outcomes. He was very personable and I would not hesitate to recommend him."</p>
+      <div class="tcard-author">Business Transformation Colleague <span class="tcard-role"> · Banking Sector</span></div>
+    </div>
+    <div class="tcard">
+      <p>"Their digital transformation support has surpassed all expectations. We improved our effectiveness, customer experience, and overall business performance by embracing the innovative technologies they recommended."</p>
+      <div class="tcard-author">Chelsea Baxter <span class="tcard-role"> · Client</span></div>
+    </div>
+    <div class="tcard">
+      <p>"Jerams Consultancy truly understands customer satisfaction — from initial consultation to final implementation, exceptional support ensuring a seamless experience. Our trusted partner for all consultancy needs."</p>
+      <div class="tcard-author">Samuel Pickering <span class="tcard-role"> · Client</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+  <div><span class="stat-num">20+</span><span class="stat-lbl">Years' Experience</span></div>
+  <div><span class="stat-num">7</span><span class="stat-lbl">Service Practices</span></div>
+  <div><span class="stat-num">22</span><span class="stat-lbl">LinkedIn Recommendations</span></div>
+  <div><span class="stat-num">5+</span><span class="stat-lbl">Sectors Served</span></div>
+</div>
+
+<!-- CyberTek -->
+<div class="cybertek" id="cybertek">
+  <div>
+    <div class="ct-badge">CyberTek Services — A Jerams Company</div>
+    <h2>Defending Your Digital Frontier</h2>
+    <p>
+      CyberTek Services (CTS) is our specialist cyber security division — providing complete, tailored cyber security solutions for organisations facing an ever-evolving threat landscape. Safeguarding today. Securing tomorrow.
+    </p>
+    <div class="ct-features">
+      <div class="ct-feat">Cyber security consulting &amp; risk assessment</div>
+      <div class="ct-feat">Security audits, penetration testing &amp; vulnerability assessment</div>
+      <div class="ct-feat">Threat intelligence, monitoring &amp; incident response</div>
+      <div class="ct-feat">Employee education &amp; cybersecurity awareness programmes</div>
+      <div class="ct-feat">24/7/365 service backed by SLAs for continuous protection</div>
+    </div>
+  </div>
+  <div>
+    <p style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.8;margin-bottom:1.5rem">
+      No two organisations face the same cyber challenges. CyberTek takes a proactive and all-encompassing approach — emphasising prevention, detection, and rapid response — tailored to your specific risk profile and industry requirements.
+    </p>
+    <p style="color:rgba(255,255,255,.4);font-size:.78rem;margin-bottom:.4rem">Experiencing a cyber incident right now?</p>
+    <a href="tel:+4402071677794" class="ct-phone">+44 (0)20 7167 7794</a>
+    <p class="ct-phone-label">Emergency incident response — contact us immediately</p>
+    <div style="margin-top:2rem">
+      <a href="https://jeramsconsultancy.com/cyber-tek/" class="btn btn-gold">Learn About CyberTek →</a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-block" id="contact">
+  <h2>Ready to Make Innovation<br>Work for Your Business?</h2>
+  <p>
+    Whether you're launching a transformation, rescuing a struggling programme, or strengthening your cyber posture — let's have a straight conversation about how we can help.
+  </p>
+  <div class="cta-row">
+    <a href="https://jeramsconsultancy.com/book-appointment/" class="btn btn-gold">Book an Appointment</a>
+    <a href="https://linkedin.com/in/nileshjeram" target="_blank" class="btn btn-ghost">Connect with Nilesh on LinkedIn</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="fg-brand">Jerams Consultancy</div>
+      <p class="fg-desc">A London-based management and technology consulting firm — combining engineering expertise, strategic insight, and a people-first approach to deliver enterprise solutions that transform organisations.</p>
+    </div>
+    <div class="fg-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="https://jeramsconsultancy.com/strategy-transformation/">Strategy &amp; Transformation</a></li>
+        <li><a href="https://jeramsconsultancy.com/digital-transformation/">Digital Transformation</a></li>
+        <li><a href="https://jeramsconsultancy.com/cyber-security/">Cyber Security</a></li>
+        <li><a href="https://jeramsconsultancy.com/cloud-platform/">Cloud &amp; Platform</a></li>
+        <li><a href="https://jeramsconsultancy.com/technology-engineering/">Technology Engineering</a></li>
+        <li><a href="https://jeramsconsultancy.com/data-driven-insights/">Data Driven Insights</a></li>
+      </ul>
+    </div>
+    <div class="fg-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="https://jeramsconsultancy.com/about-us/">About Us</a></li>
+        <li><a href="https://jeramsconsultancy.com/cyber-tek/">CyberTek Services</a></li>
+        <li><a href="https://jeramsconsultancy.com/recruitment/">Recruitment</a></li>
+        <li><a href="https://jeramsconsultancy.com/blog/">Blog &amp; Insights</a></li>
+        <li><a href="https://jeramsconsultancy.com/white-papers/">White Papers</a></li>
+      </ul>
+    </div>
+    <div class="fg-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://jeramsconsultancy.com/contact/">Contact Us</a></li>
+        <li><a href="https://jeramsconsultancy.com/book-appointment/">Book Appointment</a></li>
+        <li><a href="https://linkedin.com/in/nileshjeram" target="_blank">Nilesh on LinkedIn ↗</a></li>
+        <li><a href="https://uk.linkedin.com/company/jerams-consultancy" target="_blank">Company LinkedIn ↗</a></li>
+        <li><a href="https://jeramsconsultancy.com/privacy-policy/">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Jerams Consultancy Ltd. Registered in England &amp; Wales. All rights reserved.</p>
+    <a href="https://jeramsconsultancy.com/privacy-policy/">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
