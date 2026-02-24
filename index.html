@@ -256,7 +256,7 @@ nav{
 /* ─── SECTION SHELL ─── */
 .section{padding:90px 8%}
 .section-alt{background:var(--white)}
-.section-dark{background:var(--cream);color:var(--ink)}
+.section-dark{background:#0f1829;color:var(--white)}
 .section-steel{background:var(--steel);color:var(--white)}
 .label{
   display:inline-block;
@@ -270,14 +270,14 @@ h2{
   font-weight:700;line-height:1.2;
   margin-bottom:.75rem;
 }
-.section-dark h2{color:var(--ink)}
+.section-dark h2{color:var(--white)}
 .section-steel h2{color:var(--cream)}
 .intro{
   color:var(--ink-soft);font-size:1rem;
   max-width:600px;line-height:1.85;
   margin-bottom:3rem;
 }
-.section-dark .intro{color:var(--ink-soft)}
+.section-dark .intro{color:rgba(255,255,255,0.62)}
 .section-steel .intro{color:rgba(255,255,255,.6)}
 
 /* ─── MARQUEE STRIP ─── */
@@ -313,7 +313,7 @@ h2{
   transition:background .25s var(--ease);
 }
 .why-card:hover{background:var(--cream)}
-.why-icon{font-size:1.8rem;margin-bottom:1rem}
+.why-icon{font-size:1.8rem;margin-bottom:1rem;line-height:0;display:inline-block}
 .why-card h3{
   font-family:'Cormorant Garamond',serif;
   font-size:1.2rem;color:var(--ink);
@@ -397,6 +397,8 @@ h2{
   color:var(--ink);margin-bottom:.4rem;
 }
 .approach-step p{color:var(--ink-soft);font-size:.78rem;line-height:1.6}
+.section-dark .approach-step h4{color:rgba(255,255,255,0.92)}
+.section-dark .approach-step p{color:rgba(255,255,255,0.55)}
 
 /* ─── INDUSTRIES ─── */
 .industries-flex{
@@ -790,19 +792,40 @@ h2{
   </p>
   <div class="why-grid">
     <div class="why-card">
-      <div class="why-icon">⚡</div>
+      <div class="why-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="48" height="48" rx="10" fill="rgba(204,34,41,0.10)" stroke="rgba(204,34,41,0.22)" stroke-width="1"/>
+          <path d="M27 8L12 27H22L20 40L36 21H26L27 8Z" fill="#cc2229"/>
+        </svg>
+      </div>
       <h3>Immediate Value</h3>
       <p>We bring immediate, tangible value to your organisation — specialising in tight-deadline projects, programme turnarounds, and engagements that are ragged red and critical to your business strategy.</p>
       <div class="why-bar"></div>
     </div>
     <div class="why-card">
-      <div class="why-icon">🤝</div>
+      <div class="why-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="48" height="48" rx="10" fill="rgba(204,34,41,0.10)" stroke="rgba(204,34,41,0.22)" stroke-width="1"/>
+          <circle cx="16" cy="17" r="5" fill="#cc2229"/>
+          <circle cx="32" cy="17" r="5" fill="#cc2229"/>
+          <path d="M6 41C6 33.268 10.477 27 16 27C19 27 21.7 28.5 23.5 31C25.3 28.5 28 27 31 27C36.523 27 41 33.268 41 41" stroke="#cc2229" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <line x1="24" y1="31" x2="24" y2="38" stroke="#cc2229" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <h3>Relationship First</h3>
       <p>Real working collaborations built on transparency and honesty. We earn the trust of our clients and maintain it through consistent delivery, clear communication, and a genuine commitment to your success.</p>
       <div class="why-bar"></div>
     </div>
     <div class="why-card">
-      <div class="why-icon">🎯</div>
+      <div class="why-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="48" height="48" rx="10" fill="rgba(204,34,41,0.10)" stroke="rgba(204,34,41,0.22)" stroke-width="1"/>
+          <circle cx="24" cy="24" r="15" stroke="#cc2229" stroke-width="1.5" fill="none"/>
+          <circle cx="24" cy="24" r="10" stroke="#cc2229" stroke-width="1.5" fill="none"/>
+          <circle cx="24" cy="24" r="5" stroke="#cc2229" stroke-width="1.5" fill="none"/>
+          <circle cx="24" cy="24" r="2.5" fill="#cc2229"/>
+        </svg>
+      </div>
       <h3>Outcomes Focused</h3>
       <p>We thrive in the most demanding and complex environments — adaptable, flexible, and committed to delivering excellence whether we are the sole delivery partner or operating within a mixed team.</p>
       <div class="why-bar"></div>
@@ -888,7 +911,7 @@ h2{
 </section>
 
 <!-- Our Work Process -->
-<section class="section" id="process">
+<section class="section section-dark" id="process">
   <div class="label">Our Approach</div>
   <h2>How We Work</h2>
   <p class="intro">A structured yet flexible methodology — discipline in process, adaptability in delivery.</p>
